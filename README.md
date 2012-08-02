@@ -46,6 +46,6 @@ Use this module at your own risk, or better yet, not at all.
 
 ## Compatibility
 
->= Mongoose v3.0.0 stable
+`>= Mongoose v3.0.0 stable`
 
 [LICENSE](https://github.com/aheckmann/mongoose-number/blob/master/LICENSE)
