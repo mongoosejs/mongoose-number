@@ -179,7 +179,19 @@ describe('MongooseNumber', function(){
             assert.equal(2, doc.docs.length);
             assert.equal('Jesse', doc.docs[0].title);
             assert.equal('Gus', doc.docs[1].title);
-            done();
+
+            // gh-1
+            doc.num.increment();
+            doc.num.increment();
+            doc.num.increment(2);
+            doc.save(function (err) {
+              assert.ifError(err);
+              S.findById(id, function (err, doc) {
+                assert.ifError(err);
+                assert.equal(35, doc.num);
+                done();
+              })
+            })
           });
         })
       })
