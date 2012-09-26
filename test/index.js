@@ -209,8 +209,20 @@ describe('MongooseNumber', function(){
           assert.ifError(err);
           S.findById(id, function (err, doc) {
             assert.ifError(err);
-            assert.equal(30, doc.num);
-            done();
+            assert.equal(34, doc.num);
+
+            doc.num.$dec({});
+            doc.num.$dec(3.1);
+            assert.equal(-4.1, doc.num._atomics.$inc);
+            doc.save(function (err) {
+              assert.ifError(err);
+
+              S.findById(id, function (err, doc) {
+                assert.ifError(err);
+                assert.equal(29.9, doc.num);
+                done();
+              })
+            })
           });
         })
       })
