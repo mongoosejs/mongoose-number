@@ -12,6 +12,11 @@ describe('MongooseNumber', function(){
     MongooseNumber = mongoose.Types.MongooseNumber;
   })
 
+  it('has a version', function(){
+    assert.equal('string', typeof NumberModule.version);
+    console.log(NumberModule.version);
+  })
+
   it('is a function', function(){
     assert.equal('function', typeof NumberSchema);
   })
