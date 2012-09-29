@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Mongoose-number by aheckmann</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Mongoose-number</h1>
+        <p class="header">Provides Mongoose v2 sub-classed Number with atomic increment/decrement support</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/aheckmann/mongoose-number/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/aheckmann/mongoose-number/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/aheckmann/mongoose-number">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/aheckmann">aheckmann</a></p>
+
+
+      </header>
+      <section>
+        <p>Example:</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mongoose'</span><span class="p">)</span>
+<span class="nx">require</span><span class="p">(</span><span class="s1">'mongoose-number'</span><span class="p">)(</span><span class="nx">mongoose</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">partSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">num</span><span class="o">:</span> <span class="s1">'MongooseNumber'</span> <span class="p">});</span>
+<span class="kd">var</span> <span class="nx">Part</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">'Part'</span><span class="p">,</span> <span class="nx">partSchema</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">part</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Part</span><span class="p">({</span> <span class="nx">num</span><span class="o">:</span> <span class="mi">47</span> <span class="p">});</span>
+<span class="nx">part</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">Part</span><span class="p">.</span><span class="nx">findById</span><span class="p">(</span><span class="nx">part</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">part</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">part</span><span class="p">.</span><span class="nx">num</span><span class="p">.</span><span class="nx">increment</span><span class="p">();</span> <span class="c1">// uses atomic $inc</span>
+    <span class="nx">part</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">Part</span><span class="p">.</span><span class="nx">findById</span><span class="p">(</span><span class="nx">part</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">part</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">part</span><span class="p">.</span><span class="nx">num</span><span class="p">)</span> <span class="c1">// 48</span>
+      <span class="p">})</span>
+    <span class="p">})</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</pre></div>
+
+<p>In Mongoose v2 every number was cast to this custom type. This type was removed due to the following caveats:</p>
+
+<ul>
+<li><a href="https://gist.github.com/3239372">run this gist</a></li>
+</ul><p>Observe the result of <code>typeof a.n1</code>. Its "object" not "number"! Next observe the direct comparison of two mongoose numbers, <code>a.n1 == a.n2</code> is false. This makes javascript programs very sad.</p>
+
+<p>So the benefits of handy helper methods that are rarely used (though convenient) did not outweigh the broken behavior they exhibit, hence their removal in v3.</p>
+
+<p>Use this module at your own risk, or better yet, not at all.</p>
+
+<h3>Provided number methods</h3>
+
+<ul>
+<li>number#increment</li>
+<li>number#decrement</li>
+<li>number#$inc</li>
+<li>number#$dec</li>
+</ul><h3>Compatibility</h3>
+
+<p><code>&gt;= Mongoose v3.0.0 stable</code></p>
+
+<p><a href="https://github.com/aheckmann/mongoose-number/blob/master/LICENSE">LICENSE</a></p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
