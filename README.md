@@ -46,6 +46,7 @@ Use this module at your own risk, or better yet, not at all.
 
 ## Compatibility
 
-`>= Mongoose v3.0.0 stable`
+- mongoose-number 0.0.2 is compatibile with `Mongoose >= v3.0.0 < v3.6.0`
+- mongoose-number 0.1.0 is compatibile with `>= Mongoose v3.6.0`
 
 [LICENSE](https://github.com/aheckmann/mongoose-number/blob/master/LICENSE)
