@@ -1,37 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Mongoose-number : Provides Mongoose v2 sub-classed Number with atomic increment/decrement support" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>mongoose-number by aheckmann</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Mongoose-number</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <div class="wrapper">
+      <header>
+        <h1>mongoose-number</h1>
+        <p>Provides Mongoose v2 sub-classed Number with atomic increment/decrement support</p>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/aheckmann/mongoose-number">View on GitHub</a>
+        <p class="view"><a href="https://github.com/aheckmann/mongoose-number">View the Project on GitHub <small>aheckmann/mongoose-number</small></a></p>
 
-          <h1 id="project_title">Mongoose-number</h1>
-          <h2 id="project_tagline">Provides Mongoose v2 sub-classed Number with atomic increment/decrement support</h2>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/aheckmann/mongoose-number/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/aheckmann/mongoose-number/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+        <ul>
+          <li><a href="https://github.com/aheckmann/mongoose-number/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/aheckmann/mongoose-number/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/aheckmann/mongoose-number">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>Provides Mongoose v2 Number support for <a href="http://mongoosejs.com">Mongoose</a> v3.</p>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <div class="highlight"><pre><span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mongoose'</span><span class="p">)</span>
+<p><a href="http://travis-ci.org/aheckmann/mongoose-number"><img src="https://secure.travis-ci.org/aheckmann/mongoose-number.png" alt="Build Status"></a></p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mongoose'</span><span class="p">)</span>
 <span class="nx">require</span><span class="p">(</span><span class="s1">'mongoose-number'</span><span class="p">)(</span><span class="nx">mongoose</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">partSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">num</span><span class="o">:</span> <span class="s1">'MongooseNumber'</span> <span class="p">});</span>
@@ -52,38 +55,36 @@
 
 <p>In Mongoose v2 every number was cast to this custom type. This type was removed due to the following caveats:</p>
 
-<ul>
-<li><a href="https://gist.github.com/3239372">run this gist</a></li>
-</ul><p>Observe the result of <code>typeof a.n1</code>. Its "object" not "number"! Next observe the direct comparison of two mongoose numbers, <code>a.n1 == a.n2</code> is false. This makes javascript programs very sad.</p>
+<p><a href="https://gist.github.com/3239372">run this gist</a></p>
+
+<p>Observe the result of <code>typeof a.n1</code>. Its "object" not "number"! Next observe the direct comparison of two mongoose numbers, <code>a.n1 == a.n2</code> is false. This makes javascript programs very sad.</p>
 
 <p>So the benefits of handy helper methods that are rarely used (though convenient) did not outweigh the broken behavior they exhibit, hence their removal in v3.</p>
 
 <p>Use this module at your own risk, or better yet, not at all.</p>
 
-<h3>Provided number methods</h3>
+<h2>Provided number methods</h2>
 
 <ul>
 <li>number#increment</li>
 <li>number#decrement</li>
 <li>number#$inc</li>
 <li>number#$dec</li>
-</ul><h3>Compatibility</h3>
+</ul><h2>Compatibility</h2>
 
-<p><code>&gt;= Mongoose v3.0.0 stable</code></p>
-
-<p><a href="https://github.com/aheckmann/mongoose-number/blob/master/LICENSE">LICENSE</a></p>
+<ul>
+<li>mongoose-number 0.0.2 is compatibile with <code>Mongoose &gt;= v3.0.0 &lt; v3.6.0</code>
+</li>
+<li>mongoose-number 0.1.0 is compatibile with <code>&gt;= Mongoose v3.6.0</code>
+</li>
+</ul><p><a href="https://github.com/aheckmann/mongoose-number/blob/master/LICENSE">LICENSE</a></p>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Mongoose-number maintained by <a href="https://github.com/aheckmann">aheckmann</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/aheckmann">aheckmann</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-
+    <script src="javascripts/scale.fix.js"></script>
     
-
   </body>
 </html>
