@@ -29,7 +29,7 @@ part.save(function (err) {
 
 In Mongoose v2 every number was cast to this custom type. This type was removed due to the following caveats:
 
-  [run this gist]https://gist.github.com/3239372)
+  [run this gist](https://gist.github.com/3239372)
 
 Observe the result of `typeof a.n1`. Its "object" not "number"! Next observe the direct comparison of two mongoose numbers, `a.n1 == a.n2` is false. This makes javascript programs very sad.
 
