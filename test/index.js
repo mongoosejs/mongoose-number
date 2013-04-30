@@ -168,7 +168,7 @@ describe('MongooseNumber', function(){
         doc.docs.push({ title: 'Gus' });
         doc.num.increment();
 
-        var delta = doc._delta();
+        var delta = doc.$__delta();
         assert.equal(2, delta.length);
         assert.ok(delta[1].$inc);
         assert.equal(1, delta[1].$inc.num);
@@ -206,7 +206,7 @@ describe('MongooseNumber', function(){
       S.findById(id, function (err, doc) {
         assert.ifError(err);
         doc.num.decrement();
-        var delta = doc._delta();
+        var delta = doc.$__delta();
         assert.equal(2, delta.length);
         assert.ok(delta[1].$inc);
         assert.equal(-1, delta[1].$inc.num);
