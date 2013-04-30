@@ -1,6 +1,6 @@
 {
   "name": "mongoose-number",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Provides Mongoose v2 sub-classed Number with atomic increment/decrement support",
   "main": "index.js",
   "scripts": {
