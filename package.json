@@ -23,7 +23,7 @@
     "url": "git://github.com/aheckmann/mongoose-number.git"
   },
   "peerDependencies": {
-    "mongoose": "3.8.x"
+    "mongoose": ">= 3.6.x"
   },
   "devDependencies": {
     "mocha": "*",
