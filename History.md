@@ -1,4 +1,9 @@
 
+0.1.1 / 2014-05-28
+==================
+
+ * Update mongoose dependencies #3 [gitterHQ](https://github.com/gitterHQ)
+
 0.1.0 / 2013-04-30
 ==================
 
