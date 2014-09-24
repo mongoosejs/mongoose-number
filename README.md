@@ -44,6 +44,10 @@ Use this module at your own risk, or better yet, not at all.
 - number#$inc
 - number#$dec
 
+All methods default to incrementing or decrementing by 1. You can increment by other values by passing a different number to the methods:
+
+    part.num.increment(5); // increment by 5
+
 ## Compatibility
 
 - mongoose-number 0.0.2 is compatibile with `Mongoose >= v3.0.0 < v3.6.0`
