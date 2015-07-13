@@ -27,6 +27,6 @@
   },
   "devDependencies": {
     "mocha": "*",
-    "mongoose": "3.8.x"
+    "mongoose": "^4.0.0"
   }
 }

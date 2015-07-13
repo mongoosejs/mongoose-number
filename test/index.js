@@ -109,7 +109,7 @@ describe('MongooseNumber', function(){
         var m = new M({ num: [] });
         m.save(function (err) {
           assert.ok(err);
-          assert.equal('MongooseNumber', err.type);
+          assert.equal('Number', err.kind);
           assert.equal('CastError', err.name);
           done();
         });
